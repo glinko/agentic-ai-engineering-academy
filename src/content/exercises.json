@@ -1,0 +1,639 @@
+[
+  {
+    "id": "variables-1",
+    "lesson_id": "variables",
+    "title": "Паспорт AI-агента",
+    "difficulty": "Beginner",
+    "learning_objectives": [
+      "Создавать переменные разных типов"
+    ],
+    "theory": "variables",
+    "description": "Создай переменные `agent_name` со строкой `Research`, `max_steps` с целым числом `5` и `is_active` со значением `True`. Выведи имя агента через print().",
+    "starter_code": "# Создай паспорт агента\nagent_name = \"\"\nmax_steps = 0\nis_active = False\n\nprint(agent_name)",
+    "public_tests": [
+      {
+        "name": "Имя агента",
+        "expression": "agent_name",
+        "expected": "Research"
+      },
+      {
+        "name": "Лимит шагов — целое число",
+        "expression": "[max_steps, type(max_steps).__name__]",
+        "expected": [
+          5,
+          "int"
+        ]
+      },
+      {
+        "name": "Агент активен",
+        "expression": "is_active is True",
+        "expected": true
+      }
+    ],
+    "hints": [
+      "Строки записываются в кавычках, числа — без кавычек.",
+      "Для логического значения используй True с большой буквы.",
+      "Замени пустую строку именем Research, 0 — на 5, False — на True."
+    ],
+    "explanation": "У каждого значения есть тип: str для имени, int для лимита, bool для флага. Эти настройки позже станут конфигурацией агента.",
+    "estimated_minutes": 10
+  },
+  {
+    "id": "variables-2",
+    "lesson_id": "variables",
+    "title": "Бюджет запросов",
+    "difficulty": "Intermediate",
+    "learning_objectives": [
+      "Выполнять арифметические операции"
+    ],
+    "theory": "variables",
+    "description": "Есть `budget` долларов и цена запроса `price`. Вычисли `request_count` — целое количество запросов, на которое хватит бюджета. Входные значения уже заданы; проверка подставит другие. Цена всегда положительная.",
+    "starter_code": "budget = 12\nprice = 3\n\n# Сколько полных запросов можно сделать?\nrequest_count = 0\nprint(request_count)",
+    "public_tests": [
+      {
+        "name": "12 / 3",
+        "setup": "budget = 12\nprice = 3",
+        "expression": "request_count",
+        "expected": 4
+      },
+      {
+        "name": "Остаток бюджета",
+        "setup": "budget = 14\nprice = 3",
+        "expression": "request_count",
+        "expected": 4
+      },
+      {
+        "name": "Бюджет меньше цены",
+        "setup": "budget = 2\nprice = 3",
+        "expression": "request_count",
+        "expected": 0
+      }
+    ],
+    "hints": [
+      "Нужно отбросить дробную часть результата деления.",
+      "В Python есть оператор целочисленного деления //.",
+      "Вычисли request_count из budget // price."
+    ],
+    "explanation": "Оператор // возвращает результат деления с округлением вниз. Для положительного бюджета это число полных запросов.",
+    "estimated_minutes": 15
+  },
+  {
+    "id": "variables-3",
+    "lesson_id": "variables",
+    "title": "Контрольная: счётчик токенов",
+    "difficulty": "Checkpoint",
+    "learning_objectives": [
+      "Преобразовывать типы и считать значения"
+    ],
+    "theory": "variables",
+    "description": "API вернул `input_tokens` и `output_tokens` как строки. Сохрани в `total_tokens` их сумму как int. Используй входные переменные, не фиксированный ответ.",
+    "starter_code": "input_tokens = \"120\"\noutput_tokens = \"80\"\n\ntotal_tokens = 0\nprint(total_tokens)",
+    "public_tests": [
+      {
+        "name": "120 + 80",
+        "setup": "input_tokens = '120'\noutput_tokens = '80'",
+        "expression": "[total_tokens, type(total_tokens).__name__]",
+        "expected": [
+          200,
+          "int"
+        ]
+      },
+      {
+        "name": "Нулевые значения",
+        "setup": "input_tokens = '0'\noutput_tokens = '0'",
+        "expression": "total_tokens",
+        "expected": 0
+      },
+      {
+        "name": "Другие токены",
+        "setup": "input_tokens = '7'\noutput_tokens = '13'",
+        "expression": "total_tokens",
+        "expected": 20
+      }
+    ],
+    "hints": [],
+    "explanation": "int() преобразует числовую строку в целое число. Складывай преобразованные значения, иначе + соединит строки.",
+    "estimated_minutes": 15
+  },
+  {
+    "id": "strings-1",
+    "lesson_id": "strings",
+    "title": "Нормализация команды",
+    "difficulty": "Beginner",
+    "learning_objectives": [
+      "Применять методы строк"
+    ],
+    "theory": "strings",
+    "description": "Из `raw_command` получи `command`: убери пробелы с краёв и переведи текст в нижний регистр.",
+    "starter_code": "raw_command = \"  RESEARCH  \"\ncommand = raw_command\nprint(command)",
+    "public_tests": [
+      {
+        "name": "Пробелы и регистр",
+        "setup": "raw_command = '  RESEARCH  '",
+        "expression": "command",
+        "expected": "research"
+      },
+      {
+        "name": "Перевод строки",
+        "setup": "raw_command = '\\n SAVE \\t'",
+        "expression": "command",
+        "expected": "save"
+      },
+      {
+        "name": "Пустая команда",
+        "setup": "raw_command = '   '",
+        "expression": "command",
+        "expected": ""
+      }
+    ],
+    "hints": [
+      "У строк есть методы strip() и lower().",
+      "Методы можно вызывать цепочкой.",
+      "Примени raw_command.strip().lower()."
+    ],
+    "explanation": "strip() убирает краевые пробельные символы. lower() нормализует регистр, сохраняя пробелы внутри строки.",
+    "estimated_minutes": 10
+  },
+  {
+    "id": "strings-2",
+    "lesson_id": "strings",
+    "title": "Сообщение для журнала",
+    "difficulty": "Intermediate",
+    "learning_objectives": [
+      "Использовать f-strings"
+    ],
+    "theory": "strings",
+    "description": "Сформируй `message` точно в формате `Agent Research: 3 tasks`, используя `agent` и `task_count`.",
+    "starter_code": "agent = \"Research\"\ntask_count = 3\nmessage = \"\"\nprint(message)",
+    "public_tests": [
+      {
+        "name": "Research",
+        "setup": "agent = 'Research'\ntask_count = 3",
+        "expression": "message",
+        "expected": "Agent Research: 3 tasks"
+      },
+      {
+        "name": "Memory",
+        "setup": "agent = 'Memory'\ntask_count = 0",
+        "expression": "message",
+        "expected": "Agent Memory: 0 tasks"
+      },
+      {
+        "name": "Unicode",
+        "setup": "agent = 'Поиск'\ntask_count = 12",
+        "expression": "message",
+        "expected": "Agent Поиск: 12 tasks"
+      }
+    ],
+    "hints": [
+      "f-строка начинается с f перед кавычкой.",
+      "Переменные внутри f-строки помещаются в фигурные скобки.",
+      "Шаблон: f\"Agent {agent}: {task_count} tasks\"."
+    ],
+    "explanation": "f-strings вставляют значения переменных в строку. Пробелы и знаки препинания — часть формата.",
+    "estimated_minutes": 15
+  },
+  {
+    "id": "strings-3",
+    "lesson_id": "strings",
+    "title": "Контрольная: длина запроса",
+    "difficulty": "Checkpoint",
+    "learning_objectives": [
+      "Комбинировать операции над строками"
+    ],
+    "theory": "strings",
+    "description": "Сохрани в `prompt_length` длину `prompt` после удаления пробелов с краёв. Пробелы внутри строки считаются символами.",
+    "starter_code": "prompt = \"  Explain agents  \"\nprompt_length = 0\nprint(prompt_length)",
+    "public_tests": [
+      {
+        "name": "Обычный запрос",
+        "setup": "prompt = '  Explain agents  '",
+        "expression": "prompt_length",
+        "expected": 14
+      },
+      {
+        "name": "Пустой запрос",
+        "setup": "prompt = '  '",
+        "expression": "prompt_length",
+        "expected": 0
+      },
+      {
+        "name": "Внутренний пробел",
+        "setup": "prompt = ' a b '",
+        "expression": "prompt_length",
+        "expected": 3
+      }
+    ],
+    "hints": [],
+    "explanation": "Сначала очисти края strip(), затем вычисли длину len(). Порядок операций имеет значение.",
+    "estimated_minutes": 15
+  },
+  {
+    "id": "conditions-1",
+    "lesson_id": "conditions",
+    "title": "Можно ли запустить агента?",
+    "difficulty": "Beginner",
+    "learning_objectives": [
+      "Использовать сравнения"
+    ],
+    "theory": "conditions",
+    "description": "Установи `can_run` в True, если `balance` не меньше `cost`, иначе False.",
+    "starter_code": "balance = 10\ncost = 4\ncan_run = False\nprint(can_run)",
+    "public_tests": [
+      {
+        "name": "Достаточно средств",
+        "setup": "balance = 10\ncost = 4",
+        "expression": "can_run is True",
+        "expected": true
+      },
+      {
+        "name": "Точно хватает",
+        "setup": "balance = 4\ncost = 4",
+        "expression": "can_run is True",
+        "expected": true
+      },
+      {
+        "name": "Не хватает",
+        "setup": "balance = 3\ncost = 4",
+        "expression": "can_run is False",
+        "expected": true
+      }
+    ],
+    "hints": [
+      "Результат сравнения уже имеет тип bool.",
+      "Нужно учесть равенство баланса и цены.",
+      "Используй сравнение balance >= cost."
+    ],
+    "explanation": "Оператор >= включает случай равенства. Это важно для граничных значений.",
+    "estimated_minutes": 10
+  },
+  {
+    "id": "conditions-2",
+    "lesson_id": "conditions",
+    "title": "Маршрутизация ответа API",
+    "difficulty": "Intermediate",
+    "learning_objectives": [
+      "Строить ветвления if/elif/else"
+    ],
+    "theory": "conditions",
+    "description": "Для `status` от 200 до 299 включительно запиши `action = 'success'`, для 429 — 'retry', для всех остальных — 'error'.",
+    "starter_code": "status = 200\naction = \"\"\n# Добавь ветвление\nprint(action)",
+    "public_tests": [
+      {
+        "name": "Успешный ответ",
+        "setup": "status = 201",
+        "expression": "action",
+        "expected": "success"
+      },
+      {
+        "name": "Rate limit",
+        "setup": "status = 429",
+        "expression": "action",
+        "expected": "retry"
+      },
+      {
+        "name": "Граница 299",
+        "setup": "status = 299",
+        "expression": "action",
+        "expected": "success"
+      },
+      {
+        "name": "Граница 300",
+        "setup": "status = 300",
+        "expression": "action",
+        "expected": "error"
+      },
+      {
+        "name": "Ошибка сервера",
+        "setup": "status = 500",
+        "expression": "action",
+        "expected": "error"
+      }
+    ],
+    "hints": [
+      "Используй if, elif и else.",
+      "Диапазон можно проверить так: 200 <= status <= 299.",
+      "Сначала проверь успешный диапазон, затем status == 429; остальные случаи попадут в else."
+    ],
+    "explanation": "Ветвление выбирает первое подходящее условие. Код 429 предполагает повтор запроса; ошибки нельзя считать успехом.",
+    "estimated_minutes": 20
+  },
+  {
+    "id": "conditions-3",
+    "lesson_id": "conditions",
+    "title": "Контрольная: approval gate",
+    "difficulty": "Checkpoint",
+    "learning_objectives": [
+      "Комбинировать логические условия"
+    ],
+    "theory": "conditions",
+    "description": "Действие разрешено (`allowed = True`), только если `is_authenticated` истинно И либо действие не опасно (`is_dangerous = False`), либо получено `approved = True`.",
+    "starter_code": "is_authenticated = True\nis_dangerous = True\napproved = False\nallowed = False\nprint(allowed)",
+    "public_tests": [
+      {
+        "name": "Требуется подтверждение",
+        "setup": "is_authenticated = True\nis_dangerous = True\napproved = False",
+        "expression": "allowed is False",
+        "expected": true
+      },
+      {
+        "name": "Подтверждено",
+        "setup": "is_authenticated = True\nis_dangerous = True\napproved = True",
+        "expression": "allowed is True",
+        "expected": true
+      },
+      {
+        "name": "Безопасное действие",
+        "setup": "is_authenticated = True\nis_dangerous = False\napproved = False",
+        "expression": "allowed is True",
+        "expected": true
+      },
+      {
+        "name": "Нет авторизации",
+        "setup": "is_authenticated = False\nis_dangerous = False\napproved = True",
+        "expression": "allowed is False",
+        "expected": true
+      }
+    ],
+    "hints": [],
+    "explanation": "Объедини авторизацию через and с выражением (not is_dangerous or approved). Скобки делают смысл явным.",
+    "estimated_minutes": 20
+  },
+  {
+    "id": "loops-1",
+    "lesson_id": "loops",
+    "title": "Суммарное потребление",
+    "difficulty": "Beginner",
+    "learning_objectives": [
+      "Использовать цикл и аккумулятор"
+    ],
+    "theory": "loops",
+    "description": "Пройди циклом по `token_usage` и вычисли `total`. Пустой список должен давать 0.",
+    "starter_code": "token_usage = [12, 8, 20]\ntotal = 0\n# Добавь цикл\nprint(total)",
+    "public_tests": [
+      {
+        "name": "Несколько запросов",
+        "setup": "token_usage = [12, 8, 20]",
+        "expression": "total",
+        "expected": 40
+      },
+      {
+        "name": "Пустой список",
+        "setup": "token_usage = []",
+        "expression": "total",
+        "expected": 0
+      },
+      {
+        "name": "Один запрос",
+        "setup": "token_usage = [7]",
+        "expression": "total",
+        "expected": 7
+      }
+    ],
+    "hints": [
+      "Цикл for перебирает значения списка.",
+      "На каждом шаге увеличивай total на текущее значение.",
+      "После for tokens in token_usage: добавь с отступом total += tokens."
+    ],
+    "explanation": "Аккумулятор хранит промежуточную сумму. Инициализируй его перед циклом, иначе сумма будет обнуляться.",
+    "estimated_minutes": 15
+  },
+  {
+    "id": "loops-2",
+    "lesson_id": "loops",
+    "title": "Фильтр времени ответа",
+    "difficulty": "Intermediate",
+    "learning_objectives": [
+      "Совмещать цикл и условие"
+    ],
+    "theory": "loops",
+    "description": "Сохрани в `slow_count` количество значений в `latencies`, строго превышающих 1000 миллисекунд.",
+    "starter_code": "latencies = [120, 1500, 1000, 2200]\nslow_count = 0\n# Посчитай медленные запросы\nprint(slow_count)",
+    "public_tests": [
+      {
+        "name": "Два медленных запроса",
+        "setup": "latencies = [120, 1500, 1000, 2200]",
+        "expression": "slow_count",
+        "expected": 2
+      },
+      {
+        "name": "Граница",
+        "setup": "latencies = [999, 1000, 1001]",
+        "expression": "slow_count",
+        "expected": 1
+      },
+      {
+        "name": "Нет запросов",
+        "setup": "latencies = []",
+        "expression": "slow_count",
+        "expected": 0
+      }
+    ],
+    "hints": [
+      "Внутри for добавь if.",
+      "Используй строгое сравнение > 1000.",
+      "Если задержка больше порога, увеличивай slow_count на 1."
+    ],
+    "explanation": "Счётчик увеличивается только при выполнении условия. Значение ровно 1000 не проходит строгий порог.",
+    "estimated_minutes": 15
+  },
+  {
+    "id": "loops-3",
+    "lesson_id": "loops",
+    "title": "Контрольная: остановка по лимиту",
+    "difficulty": "Checkpoint",
+    "learning_objectives": [
+      "Использовать break и накопление"
+    ],
+    "theory": "loops",
+    "description": "Обрабатывай расходы `costs` по порядку. Увеличивай `spent`, пока следующий расход помещается в `budget`. При первом превышении остановись, не переходи к более дешёвым элементам. Сохрани число обработанных расходов в `processed`.",
+    "starter_code": "costs = [3, 4, 8, 1]\nbudget = 10\nspent = 0\nprocessed = 0\n# Обработай расходы по порядку\nprint(spent, processed)",
+    "public_tests": [
+      {
+        "name": "Остановка на третьем",
+        "setup": "costs = [3, 4, 8, 1]\nbudget = 10",
+        "expression": "[spent, processed]",
+        "expected": [
+          7,
+          2
+        ]
+      },
+      {
+        "name": "Ровно в лимит",
+        "setup": "costs = [2, 3]\nbudget = 5",
+        "expression": "[spent, processed]",
+        "expected": [
+          5,
+          2
+        ]
+      },
+      {
+        "name": "Первый слишком дорогой",
+        "setup": "costs = [8, 1]\nbudget = 5",
+        "expression": "[spent, processed]",
+        "expected": [
+          0,
+          0
+        ]
+      },
+      {
+        "name": "Пустая очередь",
+        "setup": "costs = []\nbudget = 10",
+        "expression": "[spent, processed]",
+        "expected": [
+          0,
+          0
+        ]
+      }
+    ],
+    "hints": [],
+    "explanation": "До прибавления стоимости проверь spent + cost > budget и выполни break. Затем обнови сумму и счётчик.",
+    "estimated_minutes": 25
+  },
+  {
+    "id": "collections-1",
+    "lesson_id": "collections",
+    "title": "Очередь инструментов",
+    "difficulty": "Beginner",
+    "learning_objectives": [
+      "Изменять списки"
+    ],
+    "theory": "collections",
+    "description": "Скопируй список `tools` в `updated_tools`, добавь 'memory' в конец копии. Исходный список не должен измениться.",
+    "starter_code": "tools = [\"search\", \"fetch\"]\nupdated_tools = []\n# Создай копию и добавь инструмент\nprint(updated_tools)",
+    "public_tests": [
+      {
+        "name": "Добавлен memory",
+        "setup": "tools = ['search', 'fetch']",
+        "expression": "updated_tools",
+        "expected": [
+          "search",
+          "fetch",
+          "memory"
+        ]
+      },
+      {
+        "name": "Оригинал сохранён",
+        "setup": "tools = ['search']",
+        "expression": "[tools, updated_tools]",
+        "expected": [
+          [
+            "search"
+          ],
+          [
+            "search",
+            "memory"
+          ]
+        ]
+      },
+      {
+        "name": "Пустая очередь",
+        "setup": "tools = []",
+        "expression": "updated_tools",
+        "expected": [
+          "memory"
+        ]
+      }
+    ],
+    "hints": [
+      "Присваивание списка не создаёт копию.",
+      "Метод copy() создаёт поверхностную копию списка.",
+      "Используй tools.copy(), затем updated_tools.append('memory')."
+    ],
+    "explanation": "Без copy() две переменные указывают на один список. append() меняет список и возвращает None.",
+    "estimated_minutes": 15
+  },
+  {
+    "id": "collections-2",
+    "lesson_id": "collections",
+    "title": "Приоритетные сообщения",
+    "difficulty": "Intermediate",
+    "learning_objectives": [
+      "Обрабатывать список словарей"
+    ],
+    "theory": "collections",
+    "description": "Из `messages` собери `urgent_ids` — список id сообщений с priority равным 'high', сохрани порядок. Отсутствующий priority считай обычным.",
+    "starter_code": "messages = [\n    {\"id\": 1, \"priority\": \"low\"},\n    {\"id\": 2, \"priority\": \"high\"},\n]\nurgent_ids = []\n# Отбери срочные сообщения\nprint(urgent_ids)",
+    "public_tests": [
+      {
+        "name": "Отбор по приоритету",
+        "setup": "messages = [{'id': 1, 'priority': 'low'}, {'id': 2, 'priority': 'high'}]",
+        "expression": "urgent_ids",
+        "expected": [
+          2
+        ]
+      },
+      {
+        "name": "Нет priority",
+        "setup": "messages = [{'id': 3}, {'id': 4, 'priority': 'high'}, {'id': 5, 'priority': 'high'}]",
+        "expression": "urgent_ids",
+        "expected": [
+          4,
+          5
+        ]
+      },
+      {
+        "name": "Пустой список",
+        "setup": "messages = []",
+        "expression": "urgent_ids",
+        "expected": []
+      }
+    ],
+    "hints": [
+      "Перебери messages циклом for.",
+      "Проверь message.get('priority') == 'high'.",
+      "Добавляй message['id'] в urgent_ids с помощью append()."
+    ],
+    "explanation": "get() возвращает None для отсутствующего ключа. Это позволяет обработать неполные данные без KeyError.",
+    "estimated_minutes": 20
+  },
+  {
+    "id": "collections-3",
+    "lesson_id": "collections",
+    "title": "Контрольная: отчёт исследователя",
+    "difficulty": "Checkpoint",
+    "learning_objectives": [
+      "Агрегировать структурированные данные"
+    ],
+    "theory": "collections",
+    "description": "Собери словарь `report`: ключ `saved` — число записей в `articles` с status 'saved'; ключ `titles` — список их заголовков в исходном порядке. У каждой записи есть title и status. Это первый модуль будущего Research Assistant.",
+    "starter_code": "articles = [\n    {\"title\": \"Agent loops\", \"status\": \"saved\"},\n    {\"title\": \"Draft\", \"status\": \"new\"},\n]\nreport = {}\n# Подготовь отчёт\nprint(report)",
+    "public_tests": [
+      {
+        "name": "Одна сохранённая статья",
+        "setup": "articles = [{'title': 'Agent loops', 'status': 'saved'}, {'title': 'Draft', 'status': 'new'}]",
+        "expression": "report",
+        "expected": {
+          "saved": 1,
+          "titles": [
+            "Agent loops"
+          ]
+        }
+      },
+      {
+        "name": "Пустое хранилище",
+        "setup": "articles = []",
+        "expression": "report",
+        "expected": {
+          "saved": 0,
+          "titles": []
+        }
+      },
+      {
+        "name": "Порядок заголовков",
+        "setup": "articles = [{'title': 'B', 'status': 'saved'}, {'title': 'A', 'status': 'saved'}]",
+        "expression": "report",
+        "expected": {
+          "saved": 2,
+          "titles": [
+            "B",
+            "A"
+          ]
+        }
+      }
+    ],
+    "hints": [],
+    "explanation": "Собери заголовки сохранённых статей в список, затем используй len() для счётчика. Получится отчёт, который позже можно возвращать из API.",
+    "estimated_minutes": 25
+  }
+]

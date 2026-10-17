@@ -1,0 +1,16 @@
+[Unit]
+Description=Agentic AI Engineering Academy
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/agentic-academy/current
+ExecStart=%h/agentic-academy/.venv/bin/python -m uvicorn backend.main:app --host 192.168.88.122 --port 8090 --no-proxy-headers
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+UMask=0077
+
+[Install]
+WantedBy=default.target

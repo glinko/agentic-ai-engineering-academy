@@ -1,0 +1,639 @@
+[
+  {
+    "id": "variables-1",
+    "lesson_id": "variables",
+    "title": "Agent profile",
+    "difficulty": "Beginner",
+    "learning_objectives": [
+      "Create variables of different types"
+    ],
+    "theory": "variables",
+    "description": "Create `agent_name` with the string `Research`, `max_steps` with the integer `5`, and `is_active` with the value `True`. Display the agent name using print().",
+    "starter_code": "# Create the agent profile\nagent_name = \"\"\nmax_steps = 0\nis_active = False\n\nprint(agent_name)",
+    "public_tests": [
+      {
+        "name": "Agent name",
+        "expression": "agent_name",
+        "expected": "Research"
+      },
+      {
+        "name": "Step limit is an integer",
+        "expression": "[max_steps, type(max_steps).__name__]",
+        "expected": [
+          5,
+          "int"
+        ]
+      },
+      {
+        "name": "Agent is active",
+        "expression": "is_active is True",
+        "expected": true
+      }
+    ],
+    "hints": [
+      "Strings need quotes; numbers do not.",
+      "Use True with a capital T for a Boolean value.",
+      "Replace the empty string with Research, 0 with 5, and False with True."
+    ],
+    "explanation": "Each value has a type: str for the name, int for the limit, and bool for the flag. These settings will later become an agent configuration.",
+    "estimated_minutes": 10
+  },
+  {
+    "id": "variables-2",
+    "lesson_id": "variables",
+    "title": "Request budget",
+    "difficulty": "Intermediate",
+    "learning_objectives": [
+      "Perform arithmetic operations"
+    ],
+    "theory": "variables",
+    "description": "Given `budget` dollars and the request `price`, calculate `request_count`: the number of complete requests the budget can cover. The input variables are already defined; tests will supply other values. The price is always positive.",
+    "starter_code": "budget = 12\nprice = 3\n\n# How many complete requests can we afford?\nrequest_count = 0\nprint(request_count)",
+    "public_tests": [
+      {
+        "name": "12 / 3",
+        "setup": "budget = 12\nprice = 3",
+        "expression": "request_count",
+        "expected": 4
+      },
+      {
+        "name": "Unused budget",
+        "setup": "budget = 14\nprice = 3",
+        "expression": "request_count",
+        "expected": 4
+      },
+      {
+        "name": "Budget below price",
+        "setup": "budget = 2\nprice = 3",
+        "expression": "request_count",
+        "expected": 0
+      }
+    ],
+    "hints": [
+      "Discard the fractional part of the division result.",
+      "Python provides the floor division operator //.",
+      "Calculate request_count using budget // price."
+    ],
+    "explanation": "The // operator rounds division down. For a nonnegative budget and a positive price, it gives the number of complete requests.",
+    "estimated_minutes": 15
+  },
+  {
+    "id": "variables-3",
+    "lesson_id": "variables",
+    "title": "Checkpoint: token counter",
+    "difficulty": "Checkpoint",
+    "learning_objectives": [
+      "Convert types and add values"
+    ],
+    "theory": "variables",
+    "description": "The API returned `input_tokens` and `output_tokens` as strings. Save their sum as an int in `total_tokens`. Use the input variables rather than a fixed answer.",
+    "starter_code": "input_tokens = \"120\"\noutput_tokens = \"80\"\n\ntotal_tokens = 0\nprint(total_tokens)",
+    "public_tests": [
+      {
+        "name": "120 + 80",
+        "setup": "input_tokens = '120'\noutput_tokens = '80'",
+        "expression": "[total_tokens, type(total_tokens).__name__]",
+        "expected": [
+          200,
+          "int"
+        ]
+      },
+      {
+        "name": "Zero values",
+        "setup": "input_tokens = '0'\noutput_tokens = '0'",
+        "expression": "total_tokens",
+        "expected": 0
+      },
+      {
+        "name": "Different token counts",
+        "setup": "input_tokens = '7'\noutput_tokens = '13'",
+        "expression": "total_tokens",
+        "expected": 20
+      }
+    ],
+    "hints": [],
+    "explanation": "int() converts a numeric string to an integer. Convert both values before adding them; otherwise + joins the strings.",
+    "estimated_minutes": 15
+  },
+  {
+    "id": "strings-1",
+    "lesson_id": "strings",
+    "title": "Normalize a command",
+    "difficulty": "Beginner",
+    "learning_objectives": [
+      "Apply string methods"
+    ],
+    "theory": "strings",
+    "description": "Create `command` from `raw_command`: remove whitespace from both ends and convert the text to lowercase.",
+    "starter_code": "raw_command = \"  RESEARCH  \"\ncommand = raw_command\nprint(command)",
+    "public_tests": [
+      {
+        "name": "Whitespace and case",
+        "setup": "raw_command = '  RESEARCH  '",
+        "expression": "command",
+        "expected": "research"
+      },
+      {
+        "name": "Newline characters",
+        "setup": "raw_command = '\\n SAVE \\t'",
+        "expression": "command",
+        "expected": "save"
+      },
+      {
+        "name": "Empty command",
+        "setup": "raw_command = '   '",
+        "expression": "command",
+        "expected": ""
+      }
+    ],
+    "hints": [
+      "Strings have strip() and lower() methods.",
+      "You can chain method calls.",
+      "Apply raw_command.strip().lower()."
+    ],
+    "explanation": "strip() removes whitespace at the edges. lower() normalizes case while preserving internal spaces.",
+    "estimated_minutes": 10
+  },
+  {
+    "id": "strings-2",
+    "lesson_id": "strings",
+    "title": "A log message",
+    "difficulty": "Intermediate",
+    "learning_objectives": [
+      "Use f-strings"
+    ],
+    "theory": "strings",
+    "description": "Build `message` in exactly this format: `Agent Research: 3 tasks`, using the `agent` and `task_count` variables.",
+    "starter_code": "agent = \"Research\"\ntask_count = 3\nmessage = \"\"\nprint(message)",
+    "public_tests": [
+      {
+        "name": "Research",
+        "setup": "agent = 'Research'\ntask_count = 3",
+        "expression": "message",
+        "expected": "Agent Research: 3 tasks"
+      },
+      {
+        "name": "Memory",
+        "setup": "agent = 'Memory'\ntask_count = 0",
+        "expression": "message",
+        "expected": "Agent Memory: 0 tasks"
+      },
+      {
+        "name": "Unicode text",
+        "setup": "agent = 'Поиск'\ntask_count = 12",
+        "expression": "message",
+        "expected": "Agent Поиск: 12 tasks"
+      }
+    ],
+    "hints": [
+      "An f-string starts with f before its opening quote.",
+      "Place variables inside braces within the f-string.",
+      "Use the template f\"Agent {agent}: {task_count} tasks\"."
+    ],
+    "explanation": "f-strings insert variable values into text. Spaces and punctuation are part of the required format.",
+    "estimated_minutes": 15
+  },
+  {
+    "id": "strings-3",
+    "lesson_id": "strings",
+    "title": "Checkpoint: prompt length",
+    "difficulty": "Checkpoint",
+    "learning_objectives": [
+      "Combine string operations"
+    ],
+    "theory": "strings",
+    "description": "Store the length of `prompt` after removing whitespace from its ends in `prompt_length`. Spaces within the string count as characters.",
+    "starter_code": "prompt = \"  Explain agents  \"\nprompt_length = 0\nprint(prompt_length)",
+    "public_tests": [
+      {
+        "name": "Typical prompt",
+        "setup": "prompt = '  Explain agents  '",
+        "expression": "prompt_length",
+        "expected": 14
+      },
+      {
+        "name": "Empty prompt",
+        "setup": "prompt = '  '",
+        "expression": "prompt_length",
+        "expected": 0
+      },
+      {
+        "name": "Internal space",
+        "setup": "prompt = ' a b '",
+        "expression": "prompt_length",
+        "expected": 3
+      }
+    ],
+    "hints": [],
+    "explanation": "First clean the edges with strip(), then measure the string with len(). The order matters.",
+    "estimated_minutes": 15
+  },
+  {
+    "id": "conditions-1",
+    "lesson_id": "conditions",
+    "title": "Can the agent run?",
+    "difficulty": "Beginner",
+    "learning_objectives": [
+      "Use comparisons"
+    ],
+    "theory": "conditions",
+    "description": "Set `can_run` to True if `balance` is at least `cost`; otherwise set it to False.",
+    "starter_code": "balance = 10\ncost = 4\ncan_run = False\nprint(can_run)",
+    "public_tests": [
+      {
+        "name": "Sufficient balance",
+        "setup": "balance = 10\ncost = 4",
+        "expression": "can_run is True",
+        "expected": true
+      },
+      {
+        "name": "Exactly enough",
+        "setup": "balance = 4\ncost = 4",
+        "expression": "can_run is True",
+        "expected": true
+      },
+      {
+        "name": "Insufficient balance",
+        "setup": "balance = 3\ncost = 4",
+        "expression": "can_run is False",
+        "expected": true
+      }
+    ],
+    "hints": [
+      "A comparison already produces a bool.",
+      "Remember the case where balance equals cost.",
+      "Use the comparison balance >= cost."
+    ],
+    "explanation": "The >= operator includes equality. This matters at boundary values.",
+    "estimated_minutes": 10
+  },
+  {
+    "id": "conditions-2",
+    "lesson_id": "conditions",
+    "title": "Route an API response",
+    "difficulty": "Intermediate",
+    "learning_objectives": [
+      "Build if/elif/else branches"
+    ],
+    "theory": "conditions",
+    "description": "If `status` is between 200 and 299 inclusive, set `action` to 'success'. For 429, set it to 'retry'. For every other status, set it to 'error'.",
+    "starter_code": "status = 200\naction = \"\"\n# Add branching\nprint(action)",
+    "public_tests": [
+      {
+        "name": "Successful response",
+        "setup": "status = 201",
+        "expression": "action",
+        "expected": "success"
+      },
+      {
+        "name": "Rate limit",
+        "setup": "status = 429",
+        "expression": "action",
+        "expected": "retry"
+      },
+      {
+        "name": "Boundary: 299",
+        "setup": "status = 299",
+        "expression": "action",
+        "expected": "success"
+      },
+      {
+        "name": "Boundary: 300",
+        "setup": "status = 300",
+        "expression": "action",
+        "expected": "error"
+      },
+      {
+        "name": "Server error",
+        "setup": "status = 500",
+        "expression": "action",
+        "expected": "error"
+      }
+    ],
+    "hints": [
+      "Use if, elif, and else.",
+      "Check the range with 200 <= status <= 299.",
+      "Check the success range first, then status == 429; use else for all other cases."
+    ],
+    "explanation": "Branching selects the first matching condition. Status 429 suggests a retry; errors must not be treated as success.",
+    "estimated_minutes": 20
+  },
+  {
+    "id": "conditions-3",
+    "lesson_id": "conditions",
+    "title": "Checkpoint: approval gate",
+    "difficulty": "Checkpoint",
+    "learning_objectives": [
+      "Combine logical conditions"
+    ],
+    "theory": "conditions",
+    "description": "An action is permitted (`allowed = True`) only when `is_authenticated` is true AND either the action is not dangerous (`is_dangerous = False`) or it has been approved (`approved = True`).",
+    "starter_code": "is_authenticated = True\nis_dangerous = True\napproved = False\nallowed = False\nprint(allowed)",
+    "public_tests": [
+      {
+        "name": "Approval required",
+        "setup": "is_authenticated = True\nis_dangerous = True\napproved = False",
+        "expression": "allowed is False",
+        "expected": true
+      },
+      {
+        "name": "Approved action",
+        "setup": "is_authenticated = True\nis_dangerous = True\napproved = True",
+        "expression": "allowed is True",
+        "expected": true
+      },
+      {
+        "name": "Safe action",
+        "setup": "is_authenticated = True\nis_dangerous = False\napproved = False",
+        "expression": "allowed is True",
+        "expected": true
+      },
+      {
+        "name": "Unauthenticated",
+        "setup": "is_authenticated = False\nis_dangerous = False\napproved = True",
+        "expression": "allowed is False",
+        "expected": true
+      }
+    ],
+    "hints": [],
+    "explanation": "Combine authentication with and and the expression (not is_dangerous or approved). Parentheses make the rule explicit.",
+    "estimated_minutes": 20
+  },
+  {
+    "id": "loops-1",
+    "lesson_id": "loops",
+    "title": "Total token usage",
+    "difficulty": "Beginner",
+    "learning_objectives": [
+      "Use a loop and an accumulator"
+    ],
+    "theory": "loops",
+    "description": "Loop over `token_usage` and calculate `total`. An empty list must produce 0.",
+    "starter_code": "token_usage = [12, 8, 20]\ntotal = 0\n# Add a loop\nprint(total)",
+    "public_tests": [
+      {
+        "name": "Multiple requests",
+        "setup": "token_usage = [12, 8, 20]",
+        "expression": "total",
+        "expected": 40
+      },
+      {
+        "name": "Empty list",
+        "setup": "token_usage = []",
+        "expression": "total",
+        "expected": 0
+      },
+      {
+        "name": "One request",
+        "setup": "token_usage = [7]",
+        "expression": "total",
+        "expected": 7
+      }
+    ],
+    "hints": [
+      "A for loop iterates over the values in a list.",
+      "Add the current value to total at each step.",
+      "After for tokens in token_usage:, indent total += tokens."
+    ],
+    "explanation": "An accumulator stores the running sum. Initialize it before the loop so it is not reset at every iteration.",
+    "estimated_minutes": 15
+  },
+  {
+    "id": "loops-2",
+    "lesson_id": "loops",
+    "title": "Response-time filter",
+    "difficulty": "Intermediate",
+    "learning_objectives": [
+      "Combine a loop and a condition"
+    ],
+    "theory": "loops",
+    "description": "Store the number of values in `latencies` that are strictly greater than 1000 milliseconds in `slow_count`.",
+    "starter_code": "latencies = [120, 1500, 1000, 2200]\nslow_count = 0\n# Count slow requests\nprint(slow_count)",
+    "public_tests": [
+      {
+        "name": "Two slow requests",
+        "setup": "latencies = [120, 1500, 1000, 2200]",
+        "expression": "slow_count",
+        "expected": 2
+      },
+      {
+        "name": "Threshold boundary",
+        "setup": "latencies = [999, 1000, 1001]",
+        "expression": "slow_count",
+        "expected": 1
+      },
+      {
+        "name": "No requests",
+        "setup": "latencies = []",
+        "expression": "slow_count",
+        "expected": 0
+      }
+    ],
+    "hints": [
+      "Place an if statement inside the for loop.",
+      "Use the strict comparison > 1000.",
+      "If a latency exceeds the threshold, increase slow_count by 1."
+    ],
+    "explanation": "The counter increases only when the condition holds. Exactly 1000 does not exceed the strict threshold.",
+    "estimated_minutes": 15
+  },
+  {
+    "id": "loops-3",
+    "lesson_id": "loops",
+    "title": "Checkpoint: stop at the limit",
+    "difficulty": "Checkpoint",
+    "learning_objectives": [
+      "Use break and accumulation"
+    ],
+    "theory": "loops",
+    "description": "Process `costs` in order. Increase `spent` while the next expense fits within `budget`. Stop at the first expense that would exceed the budget; do not skip ahead to cheaper items. Store the number of processed expenses in `processed`.",
+    "starter_code": "costs = [3, 4, 8, 1]\nbudget = 10\nspent = 0\nprocessed = 0\n# Process expenses in order\nprint(spent, processed)",
+    "public_tests": [
+      {
+        "name": "Stop at the third item",
+        "setup": "costs = [3, 4, 8, 1]\nbudget = 10",
+        "expression": "[spent, processed]",
+        "expected": [
+          7,
+          2
+        ]
+      },
+      {
+        "name": "Exactly at the limit",
+        "setup": "costs = [2, 3]\nbudget = 5",
+        "expression": "[spent, processed]",
+        "expected": [
+          5,
+          2
+        ]
+      },
+      {
+        "name": "First item too expensive",
+        "setup": "costs = [8, 1]\nbudget = 5",
+        "expression": "[spent, processed]",
+        "expected": [
+          0,
+          0
+        ]
+      },
+      {
+        "name": "Empty queue",
+        "setup": "costs = []\nbudget = 10",
+        "expression": "[spent, processed]",
+        "expected": [
+          0,
+          0
+        ]
+      }
+    ],
+    "hints": [],
+    "explanation": "Before adding the next expense, check spent + cost > budget and break if necessary. Then update the total and the counter.",
+    "estimated_minutes": 25
+  },
+  {
+    "id": "collections-1",
+    "lesson_id": "collections",
+    "title": "Tool queue",
+    "difficulty": "Beginner",
+    "learning_objectives": [
+      "Modify lists"
+    ],
+    "theory": "collections",
+    "description": "Copy `tools` into `updated_tools` and append 'memory' to the copy. The original list must remain unchanged.",
+    "starter_code": "tools = [\"search\", \"fetch\"]\nupdated_tools = []\n# Create a copy and append a tool\nprint(updated_tools)",
+    "public_tests": [
+      {
+        "name": "Memory appended",
+        "setup": "tools = ['search', 'fetch']",
+        "expression": "updated_tools",
+        "expected": [
+          "search",
+          "fetch",
+          "memory"
+        ]
+      },
+      {
+        "name": "Original preserved",
+        "setup": "tools = ['search']",
+        "expression": "[tools, updated_tools]",
+        "expected": [
+          [
+            "search"
+          ],
+          [
+            "search",
+            "memory"
+          ]
+        ]
+      },
+      {
+        "name": "Empty queue",
+        "setup": "tools = []",
+        "expression": "updated_tools",
+        "expected": [
+          "memory"
+        ]
+      }
+    ],
+    "hints": [
+      "Assigning a list does not create a copy.",
+      "The copy() method creates a shallow copy.",
+      "Use tools.copy(), then updated_tools.append('memory')."
+    ],
+    "explanation": "Without copy(), both variables refer to the same list. append() changes a list and returns None.",
+    "estimated_minutes": 15
+  },
+  {
+    "id": "collections-2",
+    "lesson_id": "collections",
+    "title": "High-priority messages",
+    "difficulty": "Intermediate",
+    "learning_objectives": [
+      "Process a list of dictionaries"
+    ],
+    "theory": "collections",
+    "description": "Build `urgent_ids` from `messages`: include the id of every message whose priority is 'high', preserving the original order. Treat a missing priority as normal.",
+    "starter_code": "messages = [\n    {\"id\": 1, \"priority\": \"low\"},\n    {\"id\": 2, \"priority\": \"high\"},\n]\nurgent_ids = []\n# Select urgent messages\nprint(urgent_ids)",
+    "public_tests": [
+      {
+        "name": "Filter by priority",
+        "setup": "messages = [{'id': 1, 'priority': 'low'}, {'id': 2, 'priority': 'high'}]",
+        "expression": "urgent_ids",
+        "expected": [
+          2
+        ]
+      },
+      {
+        "name": "Missing priority",
+        "setup": "messages = [{'id': 3}, {'id': 4, 'priority': 'high'}, {'id': 5, 'priority': 'high'}]",
+        "expression": "urgent_ids",
+        "expected": [
+          4,
+          5
+        ]
+      },
+      {
+        "name": "Empty list",
+        "setup": "messages = []",
+        "expression": "urgent_ids",
+        "expected": []
+      }
+    ],
+    "hints": [
+      "Iterate over messages with a for loop.",
+      "Check message.get('priority') == 'high'.",
+      "Append message['id'] to urgent_ids."
+    ],
+    "explanation": "get() returns None for a missing key, allowing you to process incomplete data without KeyError.",
+    "estimated_minutes": 20
+  },
+  {
+    "id": "collections-3",
+    "lesson_id": "collections",
+    "title": "Checkpoint: research report",
+    "difficulty": "Checkpoint",
+    "learning_objectives": [
+      "Aggregate structured data"
+    ],
+    "theory": "collections",
+    "description": "Build a dictionary named `report`: `saved` must contain the number of entries in `articles` with status 'saved'; `titles` must contain their titles in the original order. Every entry has title and status fields. This is the first module of your future Research Assistant.",
+    "starter_code": "articles = [\n    {\"title\": \"Agent loops\", \"status\": \"saved\"},\n    {\"title\": \"Draft\", \"status\": \"new\"},\n]\nreport = {}\n# Prepare the report\nprint(report)",
+    "public_tests": [
+      {
+        "name": "One saved article",
+        "setup": "articles = [{'title': 'Agent loops', 'status': 'saved'}, {'title': 'Draft', 'status': 'new'}]",
+        "expression": "report",
+        "expected": {
+          "saved": 1,
+          "titles": [
+            "Agent loops"
+          ]
+        }
+      },
+      {
+        "name": "Empty library",
+        "setup": "articles = []",
+        "expression": "report",
+        "expected": {
+          "saved": 0,
+          "titles": []
+        }
+      },
+      {
+        "name": "Title order",
+        "setup": "articles = [{'title': 'B', 'status': 'saved'}, {'title': 'A', 'status': 'saved'}]",
+        "expression": "report",
+        "expected": {
+          "saved": 2,
+          "titles": [
+            "B",
+            "A"
+          ]
+        }
+      }
+    ],
+    "hints": [],
+    "explanation": "Collect the titles of saved articles in a list, then use len() to count them. You can later return this report from an API.",
+    "estimated_minutes": 25
+  }
+]

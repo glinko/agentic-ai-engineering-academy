@@ -1,0 +1,17 @@
+{
+ "variables-1":"agent_name = 'Research'\nmax_steps = 5\nis_active = True\nprint(agent_name)",
+ "variables-2":"budget = 12\nprice = 3\nrequest_count = budget // price\nprint(request_count)",
+ "variables-3":"input_tokens = '120'\noutput_tokens = '80'\ntotal_tokens = int(input_tokens) + int(output_tokens)\nprint(total_tokens)",
+ "strings-1":"raw_command = '  RESEARCH  '\ncommand = raw_command.strip().lower()\nprint(command)",
+ "strings-2":"agent = 'Research'\ntask_count = 3\nmessage = f'Agent {agent}: {task_count} tasks'\nprint(message)",
+ "strings-3":"prompt = '  Explain agents  '\nprompt_length = len(prompt.strip())\nprint(prompt_length)",
+ "conditions-1":"balance = 10\ncost = 4\ncan_run = balance >= cost\nprint(can_run)",
+ "conditions-2":"status = 200\nif 200 <= status <= 299:\n    action = 'success'\nelif status == 429:\n    action = 'retry'\nelse:\n    action = 'error'\nprint(action)",
+ "conditions-3":"is_authenticated = True\nis_dangerous = True\napproved = False\nallowed = is_authenticated and (not is_dangerous or approved)\nprint(allowed)",
+ "loops-1":"token_usage = [12, 8, 20]\ntotal = 0\nfor tokens in token_usage:\n    total += tokens\nprint(total)",
+ "loops-2":"latencies = [120, 1500, 1000, 2200]\nslow_count = 0\nfor latency in latencies:\n    if latency > 1000:\n        slow_count += 1\nprint(slow_count)",
+ "loops-3":"costs = [3, 4, 8, 1]\nbudget = 10\nspent = 0\nprocessed = 0\nfor cost in costs:\n    if spent + cost > budget:\n        break\n    spent += cost\n    processed += 1\nprint(spent, processed)",
+ "collections-1":"tools = ['search', 'fetch']\nupdated_tools = tools.copy()\nupdated_tools.append('memory')\nprint(updated_tools)",
+ "collections-2":"messages = [{'id': 1, 'priority': 'low'}, {'id': 2, 'priority': 'high'}]\nurgent_ids = []\nfor message in messages:\n    if message.get('priority') == 'high':\n        urgent_ids.append(message['id'])\nprint(urgent_ids)",
+ "collections-3":"articles = [{'title': 'Agent loops', 'status': 'saved'}, {'title': 'Draft', 'status': 'new'}]\ntitles = []\nfor article in articles:\n    if article['status'] == 'saved':\n        titles.append(article['title'])\nreport = {'saved': len(titles), 'titles': titles}\nprint(report)"
+}

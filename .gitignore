@@ -1,0 +1,14 @@
+node_modules/
+.pnpm-store/
+dist/
+test-results/
+playwright-report/
+*.tsbuildinfo
+.ssh-known-hosts
+*.tar.gz
+.env
+__pycache__/
+.venv/
+
+.deploy/
+public/pyodide/

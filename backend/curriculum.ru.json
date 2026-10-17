@@ -1,0 +1,159 @@
+{
+  "version": 1,
+  "language": "ru",
+  "weeks": 26,
+  "stages": 12,
+  "available_lessons": 5,
+  "exercises": [
+    {
+      "id": "variables-1",
+      "lesson_id": "variables",
+      "title": "Паспорт AI-агента",
+      "difficulty": "Beginner",
+      "learning_objectives": [
+        "Создавать переменные разных типов"
+      ],
+      "estimated_minutes": 10
+    },
+    {
+      "id": "variables-2",
+      "lesson_id": "variables",
+      "title": "Бюджет запросов",
+      "difficulty": "Intermediate",
+      "learning_objectives": [
+        "Выполнять арифметические операции"
+      ],
+      "estimated_minutes": 15
+    },
+    {
+      "id": "variables-3",
+      "lesson_id": "variables",
+      "title": "Контрольная: счётчик токенов",
+      "difficulty": "Checkpoint",
+      "learning_objectives": [
+        "Преобразовывать типы и считать значения"
+      ],
+      "estimated_minutes": 15
+    },
+    {
+      "id": "strings-1",
+      "lesson_id": "strings",
+      "title": "Нормализация команды",
+      "difficulty": "Beginner",
+      "learning_objectives": [
+        "Применять методы строк"
+      ],
+      "estimated_minutes": 10
+    },
+    {
+      "id": "strings-2",
+      "lesson_id": "strings",
+      "title": "Сообщение для журнала",
+      "difficulty": "Intermediate",
+      "learning_objectives": [
+        "Использовать f-strings"
+      ],
+      "estimated_minutes": 15
+    },
+    {
+      "id": "strings-3",
+      "lesson_id": "strings",
+      "title": "Контрольная: длина запроса",
+      "difficulty": "Checkpoint",
+      "learning_objectives": [
+        "Комбинировать операции над строками"
+      ],
+      "estimated_minutes": 15
+    },
+    {
+      "id": "conditions-1",
+      "lesson_id": "conditions",
+      "title": "Можно ли запустить агента?",
+      "difficulty": "Beginner",
+      "learning_objectives": [
+        "Использовать сравнения"
+      ],
+      "estimated_minutes": 10
+    },
+    {
+      "id": "conditions-2",
+      "lesson_id": "conditions",
+      "title": "Маршрутизация ответа API",
+      "difficulty": "Intermediate",
+      "learning_objectives": [
+        "Строить ветвления if/elif/else"
+      ],
+      "estimated_minutes": 20
+    },
+    {
+      "id": "conditions-3",
+      "lesson_id": "conditions",
+      "title": "Контрольная: approval gate",
+      "difficulty": "Checkpoint",
+      "learning_objectives": [
+        "Комбинировать логические условия"
+      ],
+      "estimated_minutes": 20
+    },
+    {
+      "id": "loops-1",
+      "lesson_id": "loops",
+      "title": "Суммарное потребление",
+      "difficulty": "Beginner",
+      "learning_objectives": [
+        "Использовать цикл и аккумулятор"
+      ],
+      "estimated_minutes": 15
+    },
+    {
+      "id": "loops-2",
+      "lesson_id": "loops",
+      "title": "Фильтр времени ответа",
+      "difficulty": "Intermediate",
+      "learning_objectives": [
+        "Совмещать цикл и условие"
+      ],
+      "estimated_minutes": 15
+    },
+    {
+      "id": "loops-3",
+      "lesson_id": "loops",
+      "title": "Контрольная: остановка по лимиту",
+      "difficulty": "Checkpoint",
+      "learning_objectives": [
+        "Использовать break и накопление"
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "collections-1",
+      "lesson_id": "collections",
+      "title": "Очередь инструментов",
+      "difficulty": "Beginner",
+      "learning_objectives": [
+        "Изменять списки"
+      ],
+      "estimated_minutes": 15
+    },
+    {
+      "id": "collections-2",
+      "lesson_id": "collections",
+      "title": "Приоритетные сообщения",
+      "difficulty": "Intermediate",
+      "learning_objectives": [
+        "Обрабатывать список словарей"
+      ],
+      "estimated_minutes": 20
+    },
+    {
+      "id": "collections-3",
+      "lesson_id": "collections",
+      "title": "Контрольная: отчёт исследователя",
+      "difficulty": "Checkpoint",
+      "learning_objectives": [
+        "Агрегировать структурированные данные"
+      ],
+      "estimated_minutes": 25
+    }
+  ]
+}

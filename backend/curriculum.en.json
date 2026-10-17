@@ -1,0 +1,159 @@
+{
+  "version": 1,
+  "language": "en",
+  "weeks": 26,
+  "stages": 12,
+  "available_lessons": 5,
+  "exercises": [
+    {
+      "id": "variables-1",
+      "lesson_id": "variables",
+      "title": "Agent profile",
+      "difficulty": "Beginner",
+      "learning_objectives": [
+        "Create variables of different types"
+      ],
+      "estimated_minutes": 10
+    },
+    {
+      "id": "variables-2",
+      "lesson_id": "variables",
+      "title": "Request budget",
+      "difficulty": "Intermediate",
+      "learning_objectives": [
+        "Perform arithmetic operations"
+      ],
+      "estimated_minutes": 15
+    },
+    {
+      "id": "variables-3",
+      "lesson_id": "variables",
+      "title": "Checkpoint: token counter",
+      "difficulty": "Checkpoint",
+      "learning_objectives": [
+        "Convert types and add values"
+      ],
+      "estimated_minutes": 15
+    },
+    {
+      "id": "strings-1",
+      "lesson_id": "strings",
+      "title": "Normalize a command",
+      "difficulty": "Beginner",
+      "learning_objectives": [
+        "Apply string methods"
+      ],
+      "estimated_minutes": 10
+    },
+    {
+      "id": "strings-2",
+      "lesson_id": "strings",
+      "title": "A log message",
+      "difficulty": "Intermediate",
+      "learning_objectives": [
+        "Use f-strings"
+      ],
+      "estimated_minutes": 15
+    },
+    {
+      "id": "strings-3",
+      "lesson_id": "strings",
+      "title": "Checkpoint: prompt length",
+      "difficulty": "Checkpoint",
+      "learning_objectives": [
+        "Combine string operations"
+      ],
+      "estimated_minutes": 15
+    },
+    {
+      "id": "conditions-1",
+      "lesson_id": "conditions",
+      "title": "Can the agent run?",
+      "difficulty": "Beginner",
+      "learning_objectives": [
+        "Use comparisons"
+      ],
+      "estimated_minutes": 10
+    },
+    {
+      "id": "conditions-2",
+      "lesson_id": "conditions",
+      "title": "Route an API response",
+      "difficulty": "Intermediate",
+      "learning_objectives": [
+        "Build if/elif/else branches"
+      ],
+      "estimated_minutes": 20
+    },
+    {
+      "id": "conditions-3",
+      "lesson_id": "conditions",
+      "title": "Checkpoint: approval gate",
+      "difficulty": "Checkpoint",
+      "learning_objectives": [
+        "Combine logical conditions"
+      ],
+      "estimated_minutes": 20
+    },
+    {
+      "id": "loops-1",
+      "lesson_id": "loops",
+      "title": "Total token usage",
+      "difficulty": "Beginner",
+      "learning_objectives": [
+        "Use a loop and an accumulator"
+      ],
+      "estimated_minutes": 15
+    },
+    {
+      "id": "loops-2",
+      "lesson_id": "loops",
+      "title": "Response-time filter",
+      "difficulty": "Intermediate",
+      "learning_objectives": [
+        "Combine a loop and a condition"
+      ],
+      "estimated_minutes": 15
+    },
+    {
+      "id": "loops-3",
+      "lesson_id": "loops",
+      "title": "Checkpoint: stop at the limit",
+      "difficulty": "Checkpoint",
+      "learning_objectives": [
+        "Use break and accumulation"
+      ],
+      "estimated_minutes": 25
+    },
+    {
+      "id": "collections-1",
+      "lesson_id": "collections",
+      "title": "Tool queue",
+      "difficulty": "Beginner",
+      "learning_objectives": [
+        "Modify lists"
+      ],
+      "estimated_minutes": 15
+    },
+    {
+      "id": "collections-2",
+      "lesson_id": "collections",
+      "title": "High-priority messages",
+      "difficulty": "Intermediate",
+      "learning_objectives": [
+        "Process a list of dictionaries"
+      ],
+      "estimated_minutes": 20
+    },
+    {
+      "id": "collections-3",
+      "lesson_id": "collections",
+      "title": "Checkpoint: research report",
+      "difficulty": "Checkpoint",
+      "learning_objectives": [
+        "Aggregate structured data"
+      ],
+      "estimated_minutes": 25
+    }
+  ]
+}
