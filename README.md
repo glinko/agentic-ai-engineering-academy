@@ -2,6 +2,8 @@
 
 [English](README.md) · [Русский](README.ru.md)
 
+Licensed under the [MIT License](LICENSE). You may use, modify, distribute, and sell copies, provided you retain the copyright and license notice. Third-party dependencies retain their own licenses.
+
 A working, bilingual learning platform for aspiring Agentic AI engineers. Learn through **short theory → runnable example → independent solution → automated tests → feedback → project**.
 
 The MVP includes **5 Python lessons, 15 exercises, 15 runnable examples, and 49 test cases**. English is the default; switch to Russian using the language selector in the header. Your language preference persists across visits. Drafts, attempts, hints, and completion remain shared across languages.
