@@ -35,6 +35,8 @@ The production build is written to `dist/`; preview uses port 4173. Development 
 
 **Run** executes your code once. **Check** tests it against different inputs, including boundary cases. **Reset** restores starter code while preserving attempt history and completed status. You can revisit completed lessons.
 
+Inside the editor, **Tab** indents by four spaces and **Shift+Tab** removes one indentation level, including for selected lines. To move focus out of the editor with the keyboard, press **Escape**, then **Tab**.
+
 ## Progress
 
 Progress is stored in localStorage on the current browser and origin. It records drafts, viewed theory, hint usage, up to 100 attempts per exercise, test results, approximate active practice time, and a next-day review date. Switching languages does not change exercise IDs or discard drafts. New drafts use the selected language; existing drafts retain their exact text.

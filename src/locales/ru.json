@@ -132,6 +132,7 @@
   "Checkpoint": "Контрольная",
   "Python editor": "Редактор Python",
   "Language": "Язык",
+  "Tab: indent · Shift+Tab: outdent · Escape, then Tab: leave editor": "Tab: добавить отступ · Shift+Tab: убрать отступ · Escape, затем Tab: выйти из редактора",
   "Run example {number}": "Запустить пример {number}",
   "Hint {number} of 3": "Подсказка {number} из 3",
   "{passed}/{total} tests": "{passed}/{total} тестов",
