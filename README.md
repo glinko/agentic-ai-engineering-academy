@@ -8,6 +8,18 @@ A working, bilingual learning platform for aspiring Agentic AI engineers. Learn 
 
 The MVP includes **5 Python lessons, 15 exercises, 15 runnable examples, and 49 test cases**. English is the default; switch to Russian using the language selector in the header. Your language preference persists across visits. Drafts, attempts, hints, and completion remain shared across languages.
 
+## Install a ready-to-run release
+
+**Windows 10/11 x64:** download the ZIP from [Releases](https://github.com/glinko/agentic-ai-engineering-academy/releases/latest), extract it, and double-click `agentic-academy/start.cmd`. Python is bundled; Node.js and Docker are not needed.
+
+**Ubuntu (Python 3.10+, curl):**
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/glinko/agentic-ai-engineering-academy/v0.1.0/install/ubuntu.sh | bash
+```
+
+Open http://127.0.0.1:8090/. The Ubuntu installer uses a user service when available. Both packages include the lessons and browser Python. [Installation, ports, updates, rollback, and offline use](docs/distribution.md).
+
 ## Quick start
 
 Requires Node.js 22.12+ (tested on 24.19) and pnpm 11.
@@ -101,7 +113,7 @@ The supplied service is intended for a trusted LAN. Internet deployment requires
 
 ## Publishing to GitHub
 
-The helper creates a **private** repository named `agentic-ai-engineering-academy` in the authenticated account, scans intended files for credentials, commits the source, pushes `main`, and verifies the remote commit. It refuses to overwrite an unrelated nonempty repository. Set `GITHUB_REPOSITORY_NAME` to choose a different name.
+The helper creates a **private** repository if none exists, preserves an existing repository's visibility, scans intended files for credentials, commits the source, pushes `main`, and verifies the remote commit. This project is public. It refuses to overwrite an unrelated nonempty repository. Set `GITHUB_REPOSITORY_NAME` to choose a different name.
 
 In PowerShell 7:
 
