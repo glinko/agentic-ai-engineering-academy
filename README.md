@@ -57,6 +57,8 @@ Progress is stored in localStorage on the current browser and origin. It records
 
 The timer counts ten-second intervals while the practice page is visible. Review scheduling at 1/3/7/14 days is planned, not implemented. There are no accounts or cross-device synchronization. Clearing browser data removes progress; different hosts and ports have separate storage. Storage failures display a warning.
 
+Current server/development builds after v0.1.0 support restoring previous learning: open the app with `?resume=4` to restore the first four lessons and continue with lesson five. Confirm the dialog to apply it to this browser only. Existing code, hints, and attempts are preserved; restored completion is identified separately and no passed test results are fabricated. This restores reported completion, not the old device's code or attempt history. The original v0.1.0 download does not include this feature.
+
 ## Architecture
 
 | Component | Technology |

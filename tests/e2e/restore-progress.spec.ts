@@ -1,0 +1,30 @@
+import {test,expect} from '@playwright/test';
+test('restore four previous lessons locally and continue with lesson five',async({page})=>{
+ await page.goto('/');
+ await page.getByRole('button',{name:'Start your first lesson'}).click();
+ await page.getByRole('button',{name:'Got it, let’s practice'}).click();
+ await page.getByRole('textbox',{name:'Python editor'}).fill('# my existing draft\nprint(123)');
+ await page.getByRole('button',{name:'Hint 1 of 3'}).click();
+ await page.goto('/?resume=4');
+ await expect(page.getByRole('dialog')).toBeVisible();
+ await page.getByRole('button',{name:'Restore and continue'}).click();
+ await expect(page.locator('.lesson-heading').getByRole('heading',{name:'Lists and dictionaries',exact:true})).toBeVisible();
+ await expect(page).not.toHaveURL(/resume=/);
+ await page.reload();
+ await expect(page.getByRole('button',{name:/05 Lists and dictionaries/})).toBeEnabled();
+ await expect(page.locator('.lesson-status.completed')).toHaveCount(4);
+ await page.getByRole('button',{name:'My learning'}).click();
+ await expect(page.locator('.lesson-heading').getByRole('heading',{name:'Lists and dictionaries',exact:true})).toBeVisible();
+ await page.getByRole('button',{name:'Back to overview',exact:true}).click();
+ await page.getByRole('button',{name:/Variables and data types.*Completed/}).click();
+ await page.getByRole('button',{name:/Practice/}).click();
+ await expect(page.getByRole('textbox',{name:'Python editor'})).toContainText('my existing draft');
+ await expect(page.getByRole('button',{name:'Hint 2 of 3'})).toBeVisible();
+ await page.getByRole('button',{name:'Attempts · 0'}).click();
+ await expect(page.locator('.attempt-row')).toHaveCount(0);
+});
+test('cancel leaves the normal lesson gates in place',async({page})=>{
+ await page.goto('/?resume=4');await page.getByRole('button',{name:'Cancel',exact:true}).click();
+ await expect(page.getByRole('button',{name:/05 Lists and dictionaries/})).toBeDisabled();
+ await page.goto('/?resume=99');await expect(page.getByRole('dialog')).toHaveCount(0);
+});

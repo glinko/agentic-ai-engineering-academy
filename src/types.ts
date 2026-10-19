@@ -5,5 +5,5 @@ export interface Lesson {id:string;title:string;subtitle:string;minutes:number;t
 export interface TestResult {name:string;passed:boolean;actual?:string;expected?:string;error?:string}
 export interface ExecutionResult {stdout:string;stderr:string;tests:TestResult[];error?:string;duration_ms:number;kind?:'syntax'|'runtime'|'timeout'|'infrastructure'}
 export interface Attempt {at:string;passed:boolean;tests:TestResult[];error?:string;duration_ms:number}
-export interface ExerciseProgress {code:string;hints:number;attempts:Attempt[];completed:boolean;elapsed_seconds:number;review_at?:string}
+export interface ExerciseProgress {code:string;hints:number;attempts:Attempt[];completed:boolean;elapsed_seconds:number;review_at?:string;completion_source?:'tests'|'restored'}
 export interface Progress {version:1;exercises:Record<string,ExerciseProgress>;theory_read:string[];last_exercise?:string}
